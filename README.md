@@ -1,14 +1,8 @@
-# How my one-person business runs
+# HQ: the AI system that runs my shop
 
-I sell vaporizers from Humboldt County, California. The retail side is Divine Tribe at ineedhemp.com. The wholesale side is Nice Dreamz. Nice Dreamz has operated out of Humboldt County since 2013, with no investors.
+HQ is the program I built to run my vaporizer stores: Divine Tribe at ineedhemp.com, Nice Dreamz wholesale and Tribe Seed Bank. It takes an order from checkout to the customer's door, drafts every support reply for me to approve, and keeps a fleet of agents on four machines working from one shared memory.
 
-This page explains how I run all of it mostly alone, with AI agents doing the admin.
-
-## The problem
-
-Work slowed down, and over 2025 and into early 2026 I let my last two employees go. The orders, the emails, the shipping and the customer questions did not slow down with it. I found I could do all of it myself if AI handled the typing and the clicking. I don't think the business would have survived otherwise.
-
-So now it's me and a set of agents. The agents do the legwork. I make the calls.
+The part I'm proudest of is shipping. Every open order from all three stores sits on one screen with carrier rates already loaded, and in a good run a label takes four seconds. It used to take a minute and a half.
 
 ## The loop
 
@@ -29,7 +23,7 @@ flowchart LR
 
 **Fraud check.** A plugin on the store holds any order that matches a shared blocklist of names, addresses, emails and phones. There is one list, kept in one file, and every machine reads the same copy. The dashboard also flags orders where the billing and shipping names don't match. Customers with a good history get a pass on that one, so a gift order doesn't get stopped.
 
-**Shipping.** This is the part I'm proudest of. I call it Cinch. It puts every open order from all three stores on one screen with carrier rates already loaded. I click a rate, the label prints on my thermal printer, and the order closes itself. In a good run that's four seconds per order. Clicking into every order in the WordPress admin used to take me a minute and a half.
+**Shipping.** I call it Cinch. It puts every open order from all three stores on one screen with carrier rates already loaded. I click a rate, the label prints on my thermal printer, and the order closes itself. In a good run that's four seconds per order. Clicking into every order in the WordPress admin used to take me a minute and a half.
 
 ![The shipping dashboard, with order numbers and customer spend covered](dashboard.jpg)
 
@@ -92,4 +86,4 @@ The shared brain and the dashboard are private, because they hold customer data.
 - [claude-failover](https://github.com/nicedreamzapp/claude-failover), agents keep running on a local model when Claude is down
 - [My profile](https://github.com/nicedreamzapp/nicedreamzapp), where the rest of my local AI work lives
 
-I'm open to work building local and on-device AI. This is what one person built to keep a shop running.
+I'm open to work building local and on-device AI.
