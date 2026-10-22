@@ -4,7 +4,10 @@ HQ is the program I built to run my vaporizer stores: Divine Tribe at ineedhemp.
 
 The part I'm proudest of is shipping. Every open order from all three stores sits on one screen with carrier rates already loaded, and in a good run a label takes four seconds. It used to take a minute and a half.
 
-## The loop
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-banner-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-banner-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-banner.svg" width="100%" alt="01. The loop. From checkout to the customer&#x27;s door"></picture>
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-r1-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-r1-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-r1.svg" width="100%" alt="4 s per label in a good run. 90 s what a label used to take. 3 WooCommerce stores on one screen."></picture>
+
+### The loop
 
 Orders come in on three WooCommerce stores: ineedhemp.com, nicedreamzwholesale.com and tribeseedbank.com. Here is what happens to each one.
 
@@ -39,7 +42,12 @@ If the same customer orders twice to the same address, the two orders merge into
 
 **The morning briefing.** At 9 AM my phone gets a text with the day's orders and an email summary, so I know what's waiting before I sit down.
 
-## Where the AI runs
+<img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s01-rule.svg" width="100%" alt="">
+
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-banner-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-banner-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-banner.svg" width="100%" alt="02. Where the AI runs, and the machines. Cheapest model that can do the job"></picture>
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-r1-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-r1-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-r1.svg" width="100%" alt="Ohm. The chief of staff inside the dashboard. Sends each job to the cheapest model that can do it. Local for mechanical work. Summaries, triage, briefings and classification. Cloud for customers. Customer email and anything that drives tools stay on the best cloud model."></picture>
+
+### Where the AI runs
 
 Ohm is the chief of staff inside the dashboard. It sends each job to the cheapest model that can do it, and the lowest tier is a local model.
 
@@ -47,7 +55,7 @@ I keep a clear line on what goes local. Local models handle the mechanical work:
 
 When Claude is down or I hit a usage limit, the headless agents switch to a local model and keep running. That is what claude-failover does.
 
-## The machines
+### The machines
 
 - **Mac mini.** Always on. It runs the morning briefing, sends the iMessages, runs the watchers and hosts the browser broker. It is the machine that sends texts and media to my phone.
 - **My laptop.** A Mac with 128GB of memory. This is where I work and where I run local models.
@@ -55,7 +63,12 @@ When Claude is down or I hit a usage limit, the headless agents switch to a loca
 - **A small VPS.** It hosts the shipping dashboard, Ohm and the job queue.
 - **Store hosting.** The three WordPress and WooCommerce sites live here.
 
-## How the agents reach each other
+<img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s02-rule.svg" width="100%" alt="">
+
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-banner-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-banner-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-banner.svg" width="100%" alt="03. How the agents reach each other. One system across several machines"></picture>
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-r1-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-r1-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-r1.svg" width="100%" alt="A shared brain. One private git repo holds the memory every agent reads. A job queue. The dashboard has a queue the mini polls. One shared browser. browser-broker gives each agent its own tab."></picture>
+
+### How the agents reach each other
 
 - **A shared brain.** One private git repo holds the memory every agent reads. Each machine pulls when a session starts and pushes when it ends, so a lesson learned on one machine is known on all of them. Nothing gets deleted by a sync, and on a real conflict the newest note wins. Each machine also writes a daily log, and the machines leave each other notes in a messages folder.
 - **A lessons file.** Every mistake that cost me something becomes a one line rule that all agents load.
@@ -66,7 +79,12 @@ When Claude is down or I hit a usage limit, the headless agents switch to a loca
 - **One shared browser.** The agents all need my logged-in browser. browser-broker gives each agent its own tab and keeps them out of each other's and out of mine.
 - **Agents as customers.** x402-php lets an AI agent pay the store over HTTP. The store's plugins can list a catalog for agents and charge AI crawlers, and they start in a watch-only mode.
 
-## The rule that runs through all of it
+<img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s03-rule.svg" width="100%" alt="">
+
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-banner-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-banner-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-banner.svg" width="100%" alt="04. The rule that runs through all of it. Agents draft, I approve"></picture>
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-r1-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-r1-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-r1.svg" width="100%" alt="Agents draft. Emails, texts, posts, invoices and order changes the customer would see. I approve. Anything that goes outside the building waits for my go."></picture>
+
+### The rule that runs through all of it
 
 Agents draft. I approve anything that goes outside the building.
 
@@ -74,7 +92,12 @@ That means emails, texts, posts, invoices and any order change the customer woul
 
 A few details make it hold up. An email only goes out when I literally say send. If we change the plan partway through, say the shipping method or the price, the old approval is dead and I get the draft again. A hook on my machine blocks any customer email that promises money or product until I've approved that exact text. Anything that costs money gets its own line in the draft, so I can't miss it.
 
-## The public parts
+<img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s04-rule.svg" width="100%" alt="">
+
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-banner-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-banner-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-banner.svg" width="100%" alt="05. The public parts. The tools underneath are open"></picture>
+<picture><source media="(max-width: 610px), (min-width: 768px) and (max-width: 895px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-r1-m.svg"><source media="(max-width: 1149px)" srcset="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-r1-mid.svg"><img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-r1.svg" width="100%" alt="Private. The shared brain and the dashboard hold customer data. Public. The tools underneath are MIT or Apache licensed."></picture>
+
+### The public parts
 
 The shared brain and the dashboard are private, because they hold customer data. The tools underneath them are public and MIT or Apache licensed.
 
@@ -87,3 +110,5 @@ The shared brain and the dashboard are private, because they hold customer data.
 - [My profile](https://github.com/nicedreamzapp/nicedreamzapp), where the rest of my local AI work lives
 
 I'm open to work building local and on-device AI.
+
+<img src="https://raw.githubusercontent.com/nicedreamzapp/how-my-shop-runs/main/assets/readme/s05-rule.svg" width="100%" alt="">
